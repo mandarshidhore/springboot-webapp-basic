@@ -20,10 +20,10 @@ public class HomeController {
 	public String helloWorld() {
 		System.out.println(">> helloWorld");
 		// if application.properties file does not contain prefix and suffix for jsp pages
-		// 		1. use return "/WEB-INF/home.jsp";
-		//		2. if jsp is directly under webapp, then no need to add /WEB-INF/
+		// 	1. use return "/WEB-INF/home.jsp";
+		//	2. if jsp is directly under webapp, use return "home.jsp";
 		// if application.properties file contains prefix and suffix for jsp pages
-		//		1. just use return "home";
+		//	1. just use return "home";
 		return "home";
 	}
 
