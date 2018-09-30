@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Home Page</title>
+	<title>Spring Boot Web App Basic</title>
 </head>
 <body>
 	Hello World jsp

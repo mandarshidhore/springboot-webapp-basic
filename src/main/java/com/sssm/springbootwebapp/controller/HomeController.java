@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 	
-	// this method gets rid of whitelabel error (encountered in absence of default mapping)
+	// this method gets rid of localhost:8080 whitelabel error (encountered in absence of default mapping)
 	// it redirects to @RequestMapping("/home") method
 	@RequestMapping("/")
 	public String welcome() {
