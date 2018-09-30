@@ -10,6 +10,7 @@ import com.sssm.springbootwebapp.model.ThreeUserInputs;
 @Controller
 public class UserInputController {
 	
+	// e.g. url -> http://localhost:8080/acceptfirstname?first=R2
 	@RequestMapping("/acceptfirstname")
 	public ModelAndView acceptfirstname(String first) {
 		System.out.println(">> acceptfirstname");
@@ -20,6 +21,7 @@ public class UserInputController {
 		return mav;
 	}
 	
+	// e.g. url -> http://localhost:8080/acceptlastname?last=D2
 	@RequestMapping("/acceptlastname")
 	public ModelAndView acceptlastname(@RequestParam("last") String lastName) {
 		System.out.println(">> acceptlastname");
@@ -31,6 +33,7 @@ public class UserInputController {
 	}
 	
 	// beauty of Spring MVC - maps query params directly to POJO!
+	// e.g. url -> http://localhost:8080/acceptthreeuserinputs?fi=1&si=C3PO&ti=BB8
 	@RequestMapping("/acceptthreeuserinputs")
 	public ModelAndView acceptthreeuserinputs(ThreeUserInputs tui) {
 		System.out.println(">> acceptthreeuserinputs");

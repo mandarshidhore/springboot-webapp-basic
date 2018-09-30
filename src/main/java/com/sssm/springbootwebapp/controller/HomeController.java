@@ -8,6 +8,7 @@ public class HomeController {
 
 	// this method gets rid of localhost:8080 whitelabel error (encountered in absence of default mapping)
 	// it redirects to @RequestMapping("/home") method
+	// url -> http://localhost:8080
 	@RequestMapping("/")
 	public String welcome() {
 		System.out.println(">> welcome");
@@ -16,6 +17,7 @@ public class HomeController {
 	}
 
 	// @RequestMapping("/home") or @RequestMapping("home") has same effect
+	// url -> http://localhost:8080/home
 	@RequestMapping("/home")
 	public String helloWorld() {
 		System.out.println(">> helloWorld");
