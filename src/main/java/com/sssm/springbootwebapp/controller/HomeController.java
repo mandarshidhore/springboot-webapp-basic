@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-	
+
 	// this method gets rid of localhost:8080 whitelabel error (encountered in absence of default mapping)
 	// it redirects to @RequestMapping("/home") method
 	@RequestMapping("/")
@@ -19,7 +19,12 @@ public class HomeController {
 	@RequestMapping("/home")
 	public String helloWorld() {
 		System.out.println(">> helloWorld");
-		// path to jsp - if jsp is directly under webapp, then no need to add /WEB-INF/
-		return "/WEB-INF/home.jsp";
+		// if application.properties file does not contain prefix and suffix for jsp pages
+		// 		1. use return "/WEB-INF/home.jsp";
+		//		2. if jsp is directly under webapp, then no need to add /WEB-INF/
+		// if application.properties file contains prefix and suffix for jsp pages
+		//		1. just use return "home";
+		return "home";
 	}
+
 }
