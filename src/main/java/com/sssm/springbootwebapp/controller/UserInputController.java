@@ -1,5 +1,7 @@
 package com.sssm.springbootwebapp.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,10 +12,12 @@ import com.sssm.springbootwebapp.model.ThreeUserInputs;
 @Controller
 public class UserInputController {
 	
+	private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+	
 	// e.g. url - http://localhost:8080/acceptfirstname?first=R2
 	@RequestMapping("/acceptfirstname")
 	public ModelAndView acceptfirstname(String first) {
-		System.out.println(">> acceptfirstname");
+		LOGGER.info(">> acceptfirstname");
 		ModelAndView mav = new ModelAndView();
 		// here, query param key (first) matches argument name (first) - thus
 		// @RequestParam need not be specified
@@ -23,12 +27,12 @@ public class UserInputController {
 	}
 	
 	// e.g. url - http://localhost:8080/acceptlastname?last=D2
+	// here, query param key (last) does not match argument name (lastName) - thus
+	// @RequestParam needs to be specified
 	@RequestMapping("/acceptlastname")
 	public ModelAndView acceptlastname(@RequestParam("last") String lastName) {
-		System.out.println(">> acceptlastname");
+		LOGGER.info(">> acceptlastname");
 		ModelAndView mav = new ModelAndView();
-		// here, query param key (last) does not match argument name (lastName) - thus
-		// @RequestParam needs to be specified
 		mav.addObject("l_name", lastName);
 		mav.setViewName("input");
 		return mav;
@@ -38,7 +42,7 @@ public class UserInputController {
 	// e.g. url - http://localhost:8080/acceptthreeuserinputs?fi=1&si=C3PO&ti=BB8
 	@RequestMapping("/acceptthreeuserinputs")
 	public ModelAndView acceptthreeuserinputs(ThreeUserInputs tui) {
-		System.out.println(">> acceptthreeuserinputs");
+		LOGGER.info(">> acceptthreeuserinputs");
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("tui", tui);
 		mav.setViewName("input");
